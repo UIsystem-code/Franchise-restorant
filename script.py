@@ -96,5 +96,5 @@ menus = ['brunch_menu', 'early_bird_menu', 'dinner_menu', 'kids_menu']
 flagship_store = Franchise('1232 West End Road', menus)
 brunch_time =time(hour=11, minute=00).isoformat(timespec='minutes')
 
-#Expect 
+#Expect "brunch Menu akan tersedia dari jam 11:00 sampai jam 16:00" and "kids Menu akan tersedia dari jam 11:00 sampai jam 21:00"
 print(flagship_store.available_menus(brunch_time))
