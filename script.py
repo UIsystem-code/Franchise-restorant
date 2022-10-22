@@ -39,7 +39,7 @@ brunch_meal = {
         'tea': 1.00, 
         'mimosa': 10.50, 
         'orange juice': 3.50
-        }
+}
 brunch_start_times = time(hour=11, minute=00).isoformat(timespec='minutes')#Create start time
 brunch_end_times = time(hour=16, minute=00).isoformat(timespec='minutes')#Create end time
 brunch_menu = Menu('brunch', brunch_meal, brunch_start_times, brunch_end_times)
@@ -55,7 +55,7 @@ early_bird_items = {
         'mushroom ravioli (vegan)': 13.50,
         'coffee': 1.50,
         'espresso': 3.00   
-        }
+}
 early_bird_start_times = time(hour=15, minute=00).isoformat(timespec='minutes')#Create start time
 early_bird_end_times = time(hour=18, minute=00).isoformat(timespec='minutes')#Create end time
 early_bird_menu = Menu('early bird', early_bird_items, early_bird_start_times, early_bird_end_times)
@@ -97,4 +97,5 @@ menus = ['brunch_menu', 'early_bird_menu', 'dinner_menu', 'kids_menu']
 flagship_store = Franchise('1232 West End Road', menus)
 brunch_time =time(hour=11, minute=00).isoformat(timespec='minutes')
 
+#Expect "brunch Menu akan tersedia dari jam 11:00 sampai jam 16:00" and "kids Menu akan tersedia dari jam 11:00 sampai jam 21:00"
 print(flagship_store.available_menus(brunch_time))
