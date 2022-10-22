@@ -1,5 +1,4 @@
 from datetime import time
-import os
 
 class Franchise:
         def __init__(self, address, menus):
@@ -13,6 +12,7 @@ class Franchise:
                 if time >= menu.start_time and time <= menu.end_time:
                  available_menus.append(menu)
             return available_menus
+            
 class Menu:
         def __init__(self, name, items, start_time, end_time):
             self.name = name
@@ -91,7 +91,7 @@ print(kids_menu)
 print('total pesanannya adalah:', kids_menu.calculate_bill(['chicken nuggets', 'apple juice']))
 
 #Create menus for showing this in all franchise
-menus = ['brunch_menu', 'early_bird_menu', 'dinner_menu', 'kids_menu']
+menus = [brunch_menu, early_bird_menu, dinner_menu, kids_menu]
 
 #Create address for flagship store 
 flagship_store = Franchise('1232 West End Road', menus)
