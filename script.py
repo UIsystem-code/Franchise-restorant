@@ -100,11 +100,13 @@ menus = [brunch_menu, early_bird_menu, dinner_menu, kids_menu]
 
 #Create address for flagship store 
 flagship_store = Franchise('1232 West End Road', menus)
+#Create address for new installment
 new_installment = Franchise('12 East Mulberry Street', menus)
+#Create new place
 arepas_place = Franchise("189 Fitzgerald Avenue", menus)
+#Expect "brunch Menu akan tersedia dari jam 11:00 sampai jam 16:00" and "kids Menu akan tersedia dari jam 11:00 sampai jam 21:00"
 brunch_and_kids = time(hour=11, minute=00).isoformat(timespec='minutes')
 dinner_and_kids = time(hour=19, minute=00).isoformat(timespec='minutes')
-#Expect "brunch Menu akan tersedia dari jam 11:00 sampai jam 16:00" and "kids Menu akan tersedia dari jam 11:00 sampai jam 21:00"
 print(flagship_store.available_menus(brunch_and_kids))
 print(flagship_store.available_menus(dinner_and_kids))
 
@@ -118,5 +120,6 @@ arepas_items = {
 arepas_start_time = time(hour=10, minute=00).isoformat(timespec='minutes')
 arepas_end_time = time(hour=20, minute=00).isoformat(timespec='minutes')
 basta = Business("Basta Fazoolin' with my hear", [flagship_store, new_installment, arepas_place])
-arepas_menu = Business("Take a' Arepa", arepas_items, arepas_start_time, arepas_end_time)
-print(arepas_menu.franchises[0])
+arepas_menu = Business("Take a' Arepa", [arepas_place])
+print(basta.franchises)#Expect 3 locations 
+print(arepas_menu.franchises[0])#Arepas place
