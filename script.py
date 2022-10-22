@@ -12,7 +12,12 @@ class Franchise:
                 if time >= menu.start_time and time <= menu.end_time:
                  available_menus.append(menu)
             return available_menus
-            
+
+class Business:
+        def __init__(self, name, franchises):
+            self.name = name
+            self.franchises = franchises
+                     
 class Menu:
         def __init__(self, name, items, start_time, end_time):
             self.name = name
@@ -88,14 +93,30 @@ kids_start_times = time(hour=11, minute=00).isoformat(timespec='minutes')#Create
 kids_end_times = time(hour=21, minute=00).isoformat(timespec='minutes')#Create end time
 kids_menu = Menu('kids', kids_meal, kids_start_times, kids_end_times)
 print(kids_menu)
-print('total pesanannya adalah:', kids_menu.calculate_bill(['chicken nuggets', 'apple juice']))
+print('total pesanannya adalah:', kids_menu.calculate_bill(['chicken nuggets', 'apple juice']),'\n')
 
 #Create menus for showing this in all franchise
 menus = [brunch_menu, early_bird_menu, dinner_menu, kids_menu]
 
 #Create address for flagship store 
 flagship_store = Franchise('1232 West End Road', menus)
-brunch_time =time(hour=11, minute=00).isoformat(timespec='minutes')
-
+new_installment = Franchise('12 East Mulberry Street', menus)
+arepas_place = Franchise("189 Fitzgerald Avenue", menus)
+brunch_and_kids = time(hour=11, minute=00).isoformat(timespec='minutes')
+dinner_and_kids = time(hour=19, minute=00).isoformat(timespec='minutes')
 #Expect "brunch Menu akan tersedia dari jam 11:00 sampai jam 16:00" and "kids Menu akan tersedia dari jam 11:00 sampai jam 21:00"
-print(flagship_store.available_menus(brunch_time))
+print(flagship_store.available_menus(brunch_and_kids))
+print(flagship_store.available_menus(dinner_and_kids))
+
+#Create new menu
+arepas_items = {
+    'arepa pabellon': 7.00,
+    'pernil arepa': 8.50,
+    'guayanes arepa': 8.00, 
+    'jamon arepa': 7.50
+}
+arepas_start_time = time(hour=10, minute=00).isoformat(timespec='minutes')
+arepas_end_time = time(hour=20, minute=00).isoformat(timespec='minutes')
+basta = Business("Basta Fazoolin' with my hear", [flagship_store, new_installment, arepas_place])
+arepas_menu = Business("Take a' Arepa", arepas_items, arepas_start_time, arepas_end_time)
+print(arepas_menu.franchises[0])
